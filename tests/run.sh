@@ -26,7 +26,7 @@ printf '\n[editor_plugins]\n\nenabled=PackedStringArray("res://addons/gomo_sound
 timeout 180 "$GODOT" --headless --editor --path "$TB" >/dev/null 2>&1 || true
 echo "--- editor ---"
 cat "$TB/editor_probe_result.txt"
-grep -q "^0 falhas" "$TB/editor_probe_result.txt"
+grep -q "^0 failures" "$TB/editor_probe_result.txt"
 
 # Phase 3: EXPORTED game with a preset that ships only one scene (the plugin must include the sounds).
 cp tests/export_probe/export_presets.cfg "$TB/export_presets.cfg"

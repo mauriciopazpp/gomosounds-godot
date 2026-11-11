@@ -31,12 +31,12 @@ func _run() -> void:
 	var args := OS.get_cmdline_user_args()
 	var command := args[0] if args.size() > 0 else ""
 	if command not in ["sync", "install"]:
-		printerr("Uso: -- sync [--folders=res://a,res://b] | -- install")
+		printerr("Usage: -- sync [--folders=res://a,res://b] | -- install")
 		quit(2)
 		return
 	SfxSettings.migrate_legacy()
 	if SfxSettings.api_key() == "":
-		printerr("Defina GOMO_API_KEY (crie a chave em Integrações no Gomo Sounds).")
+		printerr("Set GOMO_API_KEY (create the key in Integrations on Gomo Sounds).")
 		quit(2)
 		return
 	var api := SfxApi.new()
@@ -44,17 +44,17 @@ func _run() -> void:
 	var link: Array = await SfxGameLinker.resolve(api)
 	var game_id: String = link[0]
 	if game_id == "":
-		printerr("Sem jogo: ", link[2])
+		printerr("No game: ", link[2])
 		quit(1)
 		return
-	print("[sfx] jogo ", game_id, " ", link[2])
+	print("[sfx] game ", game_id, " ", link[2])
 	var err := ""
 	if command == "sync":
 		err = await _sync(api, game_id, args)
 	else:
 		err = await _install(api, game_id)
 	if err != "":
-		printerr("[sfx] erro: ", err)
+		printerr("[sfx] error: ", err)
 	quit(0 if err == "" else 1)
 
 
@@ -64,7 +64,7 @@ func _sync(api: SfxApi, game_id: String, args: PackedStringArray) -> String:
 		if a.begins_with("--folders="):
 			folders = a.substr(10).split(",", false)
 	var scenes := SfxSceneScanner.list_scenes(folders)
-	print("[sfx] ", scenes.size(), " cenas em ", ", ".join(folders))
+	print("[sfx] ", scenes.size(), " scenes in ", ", ".join(folders))
 	var registrar := SfxSceneRegistrar.new()
 	registrar.progress.connect(func(msg: String) -> void: print("[sfx] ", msg))
 	var res: Dictionary = await registrar.register(api, game_id, scenes, null)

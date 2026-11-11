@@ -5,9 +5,9 @@ extends Node
 
 
 func _ready() -> void:
-	var has := SfxLibrary.has_sound("aranha.ataque")
+	var has := SfxLibrary.has_sound("spider.attack")
 	# Loops go through attach (attached to the node); play is always a one-shot sound (sfx_library.gd).
-	var player := SfxLibrary.attach("@ambience.vento", self)
+	var player := SfxLibrary.attach("@ambience.wind", self)
 	var stream: AudioStream = player.get("stream") if player != null else null
 	print("GOMO_EXPORT has=%s played=%s loop=%s" % [has, player != null, stream is AudioStreamWAV and (stream as AudioStreamWAV).loop_mode != AudioStreamWAV.LOOP_DISABLED])
 	get_tree().quit()
