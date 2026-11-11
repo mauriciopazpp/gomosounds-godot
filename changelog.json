@@ -1,5 +1,15 @@
 [
   {
+    "version": "0.7.2",
+    "date": "2026-11-11",
+    "pt_BR": [
+      "Os nomes padrão que o plugin cria quando falta nome agora são em inglês: \"sound\" (antes \"som\"), \"folder\" (antes \"pasta\") e \"sounds\" (antes \"sons\"). Quem já tinha arquivos com os nomes antigos vê eles mudarem de lugar no próximo Instalar, que mostra a mudança antes."
+    ],
+    "en": [
+      "The default names the plugin creates when a name is missing are now in English: \"sound\" (was \"som\"), \"folder\" (was \"pasta\") and \"sounds\" (was \"sons\"). Files with the old names move on the next Install, which shows the change first."
+    ]
+  },
+  {
     "version": "0.7.1",
     "date": "2026-11-11",
     "pt_BR": [

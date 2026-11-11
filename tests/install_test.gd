@@ -95,8 +95,8 @@ func _test_sync_summary() -> void:
 func _test_safe_names() -> void:
 	_eq(SafeFileName.slug("Construção Concluída!"), "construcao_concluida", "no accents, lowercase")
 	_eq(SafeFileName.slug("CON"), "con_", "reserved Windows name")
-	_eq(SafeFileName.slug("   "), "som", "empty falls back to the default")
-	_ok(SafeFileName.slug("剣士") != SafeFileName.slug("魔法使い") and SafeFileName.slug("剣士").begins_with("som_"), "names without Latin letters do not collide")
+	_eq(SafeFileName.slug("   "), "sound", "empty falls back to the default")
+	_ok(SafeFileName.slug("剣士") != SafeFileName.slug("魔法使い") and SafeFileName.slug("剣士").begins_with("sound_"), "names without Latin letters do not collide")
 	_ok(SafeFileName.slug("a".repeat(200)).length() <= SafeFileName.MAX_LEN, "short name")
 
 

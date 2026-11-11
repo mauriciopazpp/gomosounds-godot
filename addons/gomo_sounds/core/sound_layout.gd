@@ -71,9 +71,9 @@ static func _gomo_dirs(sound: Dictionary) -> PackedStringArray:
 			parts.remove_at(0)
 	var out := PackedStringArray()
 	for p in parts:
-		out.append(SafeFileName.slug(p, "pasta"))
+		out.append(SafeFileName.slug(p, "folder"))
 	if out.is_empty():
-		out.append(SafeFileName.slug(str(sound.get("entity", "")), "sons"))
+		out.append(SafeFileName.slug(str(sound.get("entity", "")), "sounds"))
 	return out
 
 

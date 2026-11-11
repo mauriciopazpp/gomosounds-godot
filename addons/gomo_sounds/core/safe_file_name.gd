@@ -20,7 +20,7 @@ const ACCENTS := {
 }
 
 
-static func slug(text: String, fallback := "som") -> String:
+static func slug(text: String, fallback := "sound") -> String:
 	var out := ""
 	var last_sep := true
 	for ch in text.to_lower():
