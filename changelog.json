@@ -1,0 +1,114 @@
+[
+  {
+    "version": "0.7.1",
+    "date": "2026-11-11",
+    "pt_BR": [
+      "O plugin ganha licença (MIT) e README, e os testes rodam fora do site, com sons próprios: ele está pronto pra virar um repositório público. Um aviso do console que saía em português agora sai em inglês."
+    ],
+    "en": [
+      "The plugin gets a license (MIT) and a README, and the tests run outside the website with their own sounds: it is ready to become a public repository. A console warning that came out in Portuguese is now in English."
+    ]
+  },
+  {
+    "version": "0.7.0",
+    "date": "2026-11-03",
+    "pt_BR": [
+      "O catálogo (gomo_sounds.tres) guarda o andamento de cada música (bpm em cada arquivo, null quando não é música ou o site não sabe): o jogo pode sincronizar o visual com a batida. Quem já tinha instalado ganha o bpm no próximo Instalar, sem baixar o áudio de novo."
+    ],
+    "en": [
+      "The catalog (gomo_sounds.tres) stores each track's tempo (bpm on each file, null when it is not music or the site doesn't know it): the game can sync its visuals to the beat. Existing installs get the bpm on the next Install, without downloading the audio again."
+    ]
+  },
+  {
+    "version": "0.6.0",
+    "date": "2026-10-30",
+    "pt_BR": [
+      "Música: SfxLibrary.play_music(\"@music/tema\") toca as versões escolhidas de uma música em sequência, com crossfade entre uma e outra (SfxLibrary.stop_music() para, com fade). O catálogo guarda a aba de cada evento (section); sons seguem sorteando uma variação por toque."
+    ],
+    "en": [
+      "Music: SfxLibrary.play_music(\"@music/theme\") plays the chosen versions of a track in sequence, crossfading from one to the next (SfxLibrary.stop_music() stops, with a fade). The catalog stores each event's tab (section); sounds keep picking one variation per play."
+    ]
+  },
+  {
+    "version": "0.5.2",
+    "date": "2026-10-27",
+    "pt_BR": [
+      "O painel fala como a tela nova do jogo no site: sons e versões (antes eventos e variações), e as cenas vão pra uma pasta (antes \"aba\")."
+    ],
+    "en": [
+      "The dock talks like the website's new game screen: sounds and versions (before, events and variations), and scenes go into a folder (before, a \"tab\")."
+    ]
+  },
+  {
+    "version": "0.5.1",
+    "date": "2026-10-19",
+    "pt_BR": [
+      "Instalar não fica mais preso em \"Baixando…\": a espera da importação do Godot tem limite de tempo (antes contava quadros, e com o editor sem foco virava minutos ou nunca acabava). O painel mostra \"Importando no Godot…\" depois do download.",
+      "Clicar em Instalar sem nada novo conserta o que uma instalação anterior deixou pela metade (o loop e o id de cada arquivo) e avisa o site que os sons estão no jogo."
+    ],
+    "en": [
+      "Installing no longer gets stuck on \"Downloading…\": waiting for Godot's import has a time limit (it used to count frames, and with the editor unfocused that took minutes or never ended). The dock shows \"Importing into Godot…\" after the download.",
+      "Clicking Install with nothing new fixes what an earlier install left halfway (each file's loop and id) and tells the site the sounds are in the game."
+    ]
+  },
+  {
+    "version": "0.5.0",
+    "date": "2026-10-18",
+    "pt_BR": [
+      "O painel abre sem jogo escolhido e só liga o projeto ao jogo que você escolher na lista: não escolhe mais pelo nome do projeto nem cria um jogo sozinho (ligava no jogo errado quando a conta tinha dois de mesmo nome). Sem jogo escolhido, as etapas ficam escondidas. Quem já tinha escolhido continua com o mesmo jogo.",
+      "Sem jogo escolhido, o botão \"Criar o jogo\" cria um com o nome do projeto e já liga a ele. Se já existe um com esse nome, o botão diz \"Criar outro jogo\", pra ninguém duplicar sem querer."
+    ],
+    "en": [
+      "The dock opens with no game picked and only links the project to the game you pick in the list: it no longer picks by the project name or creates a game on its own (it linked to the wrong game when the account had two with the same name). With no game picked, the steps stay hidden. Projects that already had a game keep it.",
+      "With no game picked, the \"Create the game\" button creates one with the project's name and links to it. If one with that name already exists, the button says \"Create another game\", so nobody duplicates it by accident."
+    ]
+  },
+  {
+    "version": "0.4.1",
+    "date": "2026-10-18",
+    "pt_BR": [
+      "A versão do plugin é lida uma vez e guardada: se a pasta addons for apagada e recopiada com o editor aberto (uma ferramenta reinstalando), o site não vê mais \"0.0.0\" e recusa a sincronização."
+    ],
+    "en": [
+      "The plugin version is read once and kept: if the addons folder is deleted and copied back with the editor open (a tool reinstalling), the site no longer sees \"0.0.0\" and refuses the sync."
+    ]
+  },
+  {
+    "version": "0.4.0",
+    "date": "2026-10-18",
+    "pt_BR": [
+      "Saíram play_music, play_music_event, stop_music, music_key e bus_music: a aba Música do site voltou pra \"em breve\". Trilha fica numa pasta comum e toca com play() ou attach_event(), como qualquer som em loop."
+    ],
+    "en": [
+      "play_music, play_music_event, stop_music, music_key and bus_music are gone: the site's Music tab is back to \"coming soon\". A track lives in a regular folder and plays with play() or attach_event(), like any looping sound."
+    ]
+  },
+  {
+    "version": "0.3.0",
+    "date": "2026-10-17",
+    "pt_BR": [
+      "Música: SfxLibrary.play_music(\"@music.tema-principal\") e play_music_event(\"Batalha\") tocam a trilha da pasta Música do site, uma por vez, em loop e sem posição; trocar de trilha faz fade cruzado e stop_music() para.",
+      "SfxLibrary.bus_music manda a trilha pra um barramento próprio (ex.: \"Music\"), com volume separado dos efeitos."
+    ],
+    "en": [
+      "Music: SfxLibrary.play_music(\"@music.main-theme\") and play_music_event(\"Battle\") play the track from the site's Music folder, one at a time, looping and without position; switching tracks crossfades and stop_music() stops it.",
+      "SfxLibrary.bus_music sends the track to its own bus (e.g. \"Music\"), with a volume apart from the effects."
+    ]
+  },
+  {
+    "version": "0.2.0",
+    "date": "2026-10-15",
+    "pt_BR": [
+      "O plugin agora fala só com o MCP do site: as mesmas regras de créditos, limites e plano.",
+      "Avisa quando sai uma versão nova, com o link pra baixar.",
+      "Saiu o botão \"Melhorar com IA\": a descrição do som já é melhorada na hora de gerar.",
+      "A duração do som vai até 30 s."
+    ],
+    "en": [
+      "The plugin now talks only to the site's MCP: the same rules for credits, limits and plan.",
+      "Warns when a new version is out, with the download link.",
+      "The \"Improve with AI\" button is gone: the sound description is already improved when generating.",
+      "Sound duration goes up to 30 s."
+    ]
+  }
+]
