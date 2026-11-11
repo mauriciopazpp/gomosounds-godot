@@ -33,10 +33,10 @@
     "version": "0.6.0",
     "date": "2026-10-30",
     "pt_BR": [
-      "Música: SfxLibrary.play_music(\"@music/tema\") toca as versões escolhidas de uma música em sequência, com crossfade entre uma e outra (SfxLibrary.stop_music() para, com fade). O catálogo guarda a aba de cada evento (section); sons seguem sorteando uma variação por toque."
+      "Música: SfxLibrary.play_music(\"@music.tema\") toca as versões escolhidas de uma música em sequência, com crossfade entre uma e outra (SfxLibrary.stop_music() para, com fade). O catálogo guarda a aba de cada evento (section); sons seguem sorteando uma variação por toque."
     ],
     "en": [
-      "Music: SfxLibrary.play_music(\"@music/theme\") plays the chosen versions of a track in sequence, crossfading from one to the next (SfxLibrary.stop_music() stops, with a fade). The catalog stores each event's tab (section); sounds keep picking one variation per play."
+      "Music: SfxLibrary.play_music(\"@music.theme\") plays the chosen versions of a track in sequence, crossfading from one to the next (SfxLibrary.stop_music() stops, with a fade). The catalog stores each event's tab (section); sounds keep picking one variation per play."
     ]
   },
   {

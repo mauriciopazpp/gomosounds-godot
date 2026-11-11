@@ -9,7 +9,7 @@ extends Node
 ##   SfxLibrary.play_event(self, "Attack")                 # by the node's scene (no key to type)
 ##   SfxLibrary.play_first(self, ["Gunshot", "Attack"])   # the 1st name the scene has
 ##   var steps := SfxLibrary.attach_event(self, "Walk")       # loop attached to the node (follows it)
-##   SfxLibrary.play_music("@music/tema-da-vila")          # the chosen versions in sequence, with crossfade
+##   SfxLibrary.play_music("@music.village-theme")          # the chosen versions in sequence, with crossfade
 ##
 ## A ONE-SHOT sound plays on its own layer (a child of this autoload), where the node is: it
 ## outlives the node (the death sound plays even after the unit is freed) and leaves nothing hanging in
@@ -258,7 +258,7 @@ static func _load_legacy(dir: String) -> bool:
 
 static func _index(s: Dictionary, paths: Array) -> void:
 	_by_key[str(s.get("key", ""))] = paths
-	# Old catalogs have no `section`: a folder event of the Music tab still has the "@music" key prefix ("@music.tema", "@music/batalhas.chefe").
+	# Old catalogs have no `section`: a folder event of the Music tab still has the "@music" key prefix ("@music.theme", "@music/battles.boss").
 	_section_by_key[str(s.get("key", ""))] = str(s.get("section", "music" if str(s.get("key", "")).begins_with("@music") else ""))
 	if not paths.is_empty():
 		_key_by_event.get_or_add(_norm(str(s.get("event", ""))), str(s.get("key", "")))

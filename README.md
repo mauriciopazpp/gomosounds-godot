@@ -13,7 +13,7 @@
 </p>
 
 <p align="center">
-  <img alt="Godot 4.2+" src="https://img.shields.io/badge/Godot-4.2%2B-478cbf?logo=godotengine&logoColor=white">
+  <img alt="Godot 4.3+" src="https://img.shields.io/badge/Godot-4.3%2B-478cbf?logo=godotengine&logoColor=white">
   <img alt="Free plan" src="https://img.shields.io/badge/free%20plan-200%20credits%2Fmonth-ff8b15">
   <img alt="MIT license" src="https://img.shields.io/badge/license-MIT-green">
 </p>
@@ -60,21 +60,21 @@ SfxLibrary.play_event(self, "Attack")
 SfxLibrary.play("@interface/buttons.click", self)
 
 # Plays a music track, crossfading between the versions you kept
-SfxLibrary.play_music("@music/theme")
+SfxLibrary.play_music("@music.theme")
 ```
 
 ## Music, too
 
 <p align="center"><img src="docs/music.png" alt="A music track on Gomo Sounds, with its lyrics following the song" width="820"></p>
 
-Describe the mood and pick one of 36 styles, from chiptune and epic orchestral to lo-fi, metal and bossa nova. Tracks
+Describe the mood and pick a style, from chiptune and epic orchestral to lo-fi, metal and bossa nova. Tracks
 come out looping or with a beginning and an end, instrumental or with lyrics (yours, or written by the AI). They
 land in the game's Music folder and install like any other sound.
-[Hear all 36 styles →](https://gomosounds.com/en/ai-game-music-generator)
+[Hear all the styles →](https://gomosounds.com/en/ai-game-music-generator)
 
 ## Quick start
 
-You need **Godot 4.2 or newer** and a **free Gomo Sounds account**.
+You need **Godot 4.3 or newer** and a **free Gomo Sounds account**.
 
 1. Copy the `addons/gomo_sounds` folder into your project, so it ends up at `res://addons/gomo_sounds`.
 2. In Godot, open **Project → Project Settings → Plugins** and enable **Gomo Sounds**.
