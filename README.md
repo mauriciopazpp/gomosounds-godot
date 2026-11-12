@@ -81,7 +81,8 @@ You need **Godot 4.3 or newer** and a **free Gomo Sounds account**.
 2. In Godot, open **Project → Project Settings → Plugins** and enable **Gomo Sounds**.
 3. The **Gomo Sounds** dock appears on the right. Click **Connect**: your browser opens the website with a code
    (like `ABCD-EFGH`). Check that it matches the dock and approve.
-4. Tick the scenes that make noise and click **Sync**. Then make your sounds and click **Install chosen sounds**.
+4. Tick the scenes that make noise and click **Sync selected** (or **Sync all**). Then make your sounds and click
+   **Install chosen sounds**.
 
 The plugin also registers the `SfxLibrary` autoload, which is what plays the sounds in your game.
 
@@ -91,7 +92,7 @@ The plugin also registers the `SfxLibrary` autoload, which is what plays the sou
   Gomo Sounds.
 - **Your key stays on your computer.** The editor never asks for your password. The key is saved in the editor
   settings on your machine, outside the project and its git repository.
-- **Only what you choose is sent.** When you click Sync, each ticked scene's name and description, a small image
+- **Only what you choose is sent.** When you sync, each ticked scene's name and description, a small image
   (256 px) of it, its path and, when the game is created, the project name. Your sounds, scripts, models, textures
   and the scenes you didn't tick never leave the project.
 - **Your edits are safe.** If you edit an installed sound, a new version from the website won't overwrite it.
@@ -116,7 +117,7 @@ a conversation, and this plugin installs them. See the [MCP docs](https://gomoso
 ## Tests
 
 `tests/run.sh` builds an isolated test project in `.godot-testbed` (never your game) and checks the install rules,
-the editor and an exported build. It needs Godot 4 on the `PATH` as `godot-4`, or set `GODOT`.
+the editor and an exported build. It needs Godot 4.3 or newer on the `PATH` as `godot-4`, or set `GODOT`.
 
 ## License
 

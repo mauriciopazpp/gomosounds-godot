@@ -143,4 +143,4 @@ func _remove_tree(dir: String) -> void:
 func _ok(cond: bool, what: String) -> void:
 	if not cond:
 		_fails += 1
-	_lines.append(("ok   " if cond else "FALHA ") + what)
+	_lines.append(("ok   " if cond else "FAIL  ") + what)

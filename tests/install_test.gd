@@ -205,13 +205,13 @@ func _test_custom_location() -> void:
 
 func _test_legacy_manifest() -> void:
 	var dir := "res://audio/sfx_studio"
-	_write(dir + "/sounds/velho/pulo.wav", FileAccess.get_file_as_bytes(URLS["u_fire"]))
+	_write(dir + "/sounds/old/jump.wav", FileAccess.get_file_as_bytes(URLS["u_fire"]))
 	var f := FileAccess.open(dir + "/manifest.json", FileAccess.WRITE)
-	f.store_string(JSON.stringify({"sounds": [{"key": "velho.pulo", "files": ["sounds/velho/pulo.wav"], "fileIds": ["v1"]}]}))
+	f.store_string(JSON.stringify({"sounds": [{"key": "old.jump", "files": ["sounds/old/jump.wav"], "fileIds": ["v1"]}]}))
 	f.close()
 	var catalog := InstallCatalog.load_catalog(dir)
 	_eq(catalog.files.size(), 1, "an old install becomes a catalog")
-	_eq(catalog.files[0]["slot"], "velho.pulo#0", "with the same identity")
+	_eq(catalog.files[0]["slot"], "old.jump#0", "with the same identity")
 
 
 ## Folder sound inherited by several entities (+ the folder's own entry): ONE file, and every
@@ -219,13 +219,13 @@ func _test_legacy_manifest() -> void:
 func _test_inherited_is_one_file() -> void:
 	_reset()
 	var m := {"sounds": [
-		_shared("@buildings.pronto", "Buildings", ""), _shared("casa.pronto", "Casa", "Buildings"), _shared("torre.pronto", "Torre", "Buildings"),
+		_shared("@buildings.ready", "Buildings", ""), _shared("house.ready", "House", "Buildings"), _shared("tower.ready", "Tower", "Buildings"),
 	]}
 	var plan := await _install(m, SoundLayout.Mode.GOMO)
 	_eq(InstallPlanner.counts(plan).get("new", 0), 1, "inherited: 1 file, not 3")
-	_ok(not FileAccess.file_exists(ROOT + "/buildings/pronto_2.wav"), "no _2 copy")
+	_ok(not FileAccess.file_exists(ROOT + "/buildings/ready_2.wav"), "no _2 copy")
 	SfxLibrary.reload_catalog()
-	_ok(SfxLibrary.has_sound("casa.pronto") and SfxLibrary.has_sound("torre.pronto"), "every key plays")
+	_ok(SfxLibrary.has_sound("house.ready") and SfxLibrary.has_sound("tower.ready"), "every key plays")
 
 
 ## Install made with the old identity (key#n) and with COPIES of the inherited sound: migrates without downloading
@@ -233,12 +233,12 @@ func _test_inherited_is_one_file() -> void:
 func _test_old_slots_migrate() -> void:
 	var catalog := InstallCatalog.load_catalog(ROOT)
 	for e: Dictionary in catalog.files:
-		e["slot"] = "casa.pronto#0"
-	var copy := ROOT + "/buildings/pronto_2.wav"
-	_write(copy, FileAccess.get_file_as_bytes(ROOT + "/buildings/pronto.wav"))
-	catalog.files.append({"slot": "torre.pronto#0", "path": copy, "uid": "", "pinned": false, "sha256": FileAccess.get_sha256(copy), "version": "fp", "loop": false})
+		e["slot"] = "house.ready#0"
+	var copy := ROOT + "/buildings/ready_2.wav"
+	_write(copy, FileAccess.get_file_as_bytes(ROOT + "/buildings/ready.wav"))
+	catalog.files.append({"slot": "tower.ready#0", "path": copy, "uid": "", "pinned": false, "sha256": FileAccess.get_sha256(copy), "version": "fp", "loop": false})
 	InstallCatalog.save(catalog, ROOT)
-	var m := {"sounds": [_shared("@buildings.pronto", "Buildings", ""), _shared("casa.pronto", "Casa", "Buildings"), _shared("torre.pronto", "Torre", "Buildings")]}
+	var m := {"sounds": [_shared("@buildings.ready", "Buildings", ""), _shared("house.ready", "House", "Buildings"), _shared("tower.ready", "Tower", "Buildings")]}
 	var plan := await _install(m, SoundLayout.Mode.GOMO)
 	_eq(InstallPlanner.counts(plan).get("keep", 0), 1, "the original stays (no new download)")
 	_eq(InstallPlanner.counts(plan).get("remove", 0), 1, "the copy is removed")
@@ -284,12 +284,12 @@ func _test_edited_can_take_site_version() -> void:
 
 
 func _test_prune_empty_dirs() -> void:
-	_write("res://units/vazia/sub/x.wav", PackedByteArray([1]))
-	_write("res://units/vazia/outro.txt", PackedByteArray([1]))
-	DirAccess.remove_absolute("res://units/vazia/sub/x.wav")
-	InstallApplier._prune_empty_dirs("res://units/vazia/sub")
-	_ok(not DirAccess.dir_exists_absolute("res://units/vazia/sub"), "empty folder is removed")
-	_ok(DirAccess.dir_exists_absolute("res://units/vazia"), "folder with things inside stays")
+	_write("res://units/empty/sub/x.wav", PackedByteArray([1]))
+	_write("res://units/empty/outro.txt", PackedByteArray([1]))
+	DirAccess.remove_absolute("res://units/empty/sub/x.wav")
+	InstallApplier._prune_empty_dirs("res://units/empty/sub")
+	_ok(not DirAccess.dir_exists_absolute("res://units/empty/sub"), "empty folder is removed")
+	_ok(DirAccess.dir_exists_absolute("res://units/empty"), "folder with things inside stays")
 
 
 ## A folder sound (same eventId and same path for everyone that inherits it).
@@ -315,9 +315,9 @@ func _test_version_survives_missing_cfg() -> void:
 ## the field gets it on the next Install without downloading anything.
 func _test_music_bpm() -> void:
 	var dir := "res://musica_bpm"
-	var tema := _sound("@music.tema", "Musica", "", "Tema", ["u_fire", "u_rain"], ["m1", "m2"], "sounds/_pastas/music")
-	tema["bpms"] = [128, null]
-	var site := {"sounds": [tema, _sound("step.step", "Step", "", "Step", ["u_forest"], ["p1"], "sounds/step")]}
+	var theme := _sound("@music.theme", "Music", "", "Theme", ["u_fire", "u_rain"], ["m1", "m2"], "sounds/_pastas/music")
+	theme["bpms"] = [128, null]
+	var site := {"sounds": [theme, _sound("step.step", "Step", "", "Step", ["u_forest"], ["p1"], "sounds/step")]}
 	var plan := InstallPlanner.plan(site, InstallCatalog.load_catalog(dir), SoundLayout.Mode.GOMO, dir, true)
 	await InstallApplier.apply(self, plan, "g", dir)
 	var bpm := _bpms(dir)
@@ -332,7 +332,7 @@ func _test_music_bpm() -> void:
 		e.erase("bpm")
 	InstallCatalog.save(old, dir)
 	var again := InstallPlanner.plan(site, InstallCatalog.load_catalog(dir), SoundLayout.Mode.GOMO, dir, true)
-	_eq(_op(again, InstallCatalog.slot_for(tema, 0)), "keep", "old catalog: the file stays")
+	_eq(_op(again, InstallCatalog.slot_for(theme, 0)), "keep", "old catalog: the file stays")
 	_ok(InstallSummary.has_changes(again), "old catalog without bpm: Install has something to write")
 	var downloads := _downloads
 	await InstallApplier.apply(self, again, "g", dir)
@@ -363,7 +363,7 @@ func _manifest(versions := {}, urls := {}) -> Dictionary:
 	var u := func(id: String) -> String: return urls.get(id, id)
 	return {"sounds": [
 		_sound("spider.attack", "Spider", SCENE, "Attack", [u.call("u_fire"), u.call("u_rain")], [v.call("f1"), v.call("f2")]),
-		_sound("@ambience.wind", "Ambiente", "", "Wind", [u.call("u_forest")], [v.call("f3")], "sounds/_pastas/ambience", [true]),
+		_sound("@ambience.wind", "Ambience", "", "Wind", [u.call("u_forest")], [v.call("f3")], "sounds/_pastas/ambience", [true]),
 		_sound("con.death", "CON", "", "Death", [u.call("u_fire")], [v.call("f4")], "sounds/con"),
 	]}
 
@@ -422,7 +422,7 @@ func _ok(cond: bool, what: String) -> void:
 	_checks += 1
 	if not cond:
 		_fails += 1
-	print(("  ok   " if cond else "  FALHA ") + what)
+	print(("  ok   " if cond else "  FAIL  ") + what)
 
 
 func _eq(got: Variant, want: Variant, what: String) -> void:
