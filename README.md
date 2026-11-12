@@ -16,6 +16,7 @@
   <img alt="Godot 4.3+" src="https://img.shields.io/badge/Godot-4.3%2B-478cbf?logo=godotengine&logoColor=white">
   <img alt="Free plan" src="https://img.shields.io/badge/free%20plan-200%20credits%2Fmonth-ff8b15">
   <img alt="MIT license" src="https://img.shields.io/badge/license-MIT-green">
+  <a href="https://glama.ai/mcp/connectors/com.gomosounds/gomo-sounds"><img alt="Gomo Sounds MCP connector on Glama" src="https://glama.ai/mcp/connectors/com.gomosounds/gomo-sounds/badges/score.svg" height="20"></a>
 </p>
 
 ---
@@ -109,7 +110,8 @@ Gomo Sounds in your game. See [pricing](https://gomosounds.com/en) and the [term
 ## Using an AI assistant?
 
 Gomo Sounds also has an MCP server, so Claude, Claude Code or any MCP client can plan and make your game's sounds in
-a conversation, and this plugin installs them. See the [MCP docs](https://gomosounds.com/en/docs/mcp).
+a conversation, and this plugin installs them. See the [MCP docs](https://gomosounds.com/en/docs/mcp) or the
+[listing on Glama](https://glama.ai/mcp/connectors/com.gomosounds/gomo-sounds).
 
 ## Tests
 
