@@ -37,12 +37,19 @@ renaming files, dragging them into the project and wiring an `AudioStreamPlayer`
 
 You don't need to know anything about audio.
 
+<p align="center">
+  <img src="docs/dock.png" alt="The Gomo Sounds dock in the Godot editor: send scenes, make sounds, install them" width="300">
+  &nbsp;
+  <img src="docs/inbox.png" alt="The scenes sent from Godot waiting in the game's Inbox on the website" width="520">
+</p>
+
 ## How it works
 
 <p align="center"><img src="docs/folders.png" alt="A game on Gomo Sounds, with its sounds in folders: ambience, sound effects, interface, voices and music" width="820"></p>
 
 **1. Connect your project.** The plugin reads your scenes (the player, the enemies, the items...) and sends them to
-Gomo Sounds, where each one gets its own list of sounds.
+the game's Inbox on Gomo Sounds. Drag each one to its tab (or click **Move automatically**) and it gets its own list
+of sounds.
 
 **2. Make the sounds.** Ask for "attack", "footsteps", "die" for each scene, from the Gomo Sounds dock in the editor
 or on the website. Listen to the versions and keep the best ones. On the website you can also trim, fix and mix
