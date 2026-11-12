@@ -1,0 +1,5 @@
+# The Asset Library downloads the GitHub zip: only the plugin goes in it.
+/tests export-ignore
+/docs export-ignore
+/.gitignore export-ignore
+/.gitattributes export-ignore
