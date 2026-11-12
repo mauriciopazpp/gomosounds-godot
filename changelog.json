@@ -1,5 +1,15 @@
 [
   {
+    "version": "0.7.3",
+    "date": "2026-11-12",
+    "pt_BR": [
+      "Novo SfxLibrary.alias_scene(cena, cena_original): uma cena toca os sons de outra. Serve pra um modo de jogo com cópias próprias das unidades, que assim usam os mesmos sons sem duplicar nada no site."
+    ],
+    "en": [
+      "New SfxLibrary.alias_scene(scene, original_scene): a scene plays the sounds of another. Useful for a game mode with its own copies of the units, which then use the same sounds without duplicating anything on the site."
+    ]
+  },
+  {
     "version": "0.7.2",
     "date": "2026-11-11",
     "pt_BR": [

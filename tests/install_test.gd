@@ -114,6 +114,15 @@ func _test_first_install() -> void:
 	_ok(SfxLibrary.has_sound("spider.attack"), "the game finds the sound by key")
 	_eq(SfxLibraryScript._by_scene_event.get(SCENE + "|attack", []).size(), 2, "the game finds it by scene + event")
 	_ok(SfxLibraryScript._norm("Seleção ") == SfxLibraryScript._norm("Selecao"), "an event with or without accents is the same")
+	var copy := Node.new()
+	copy.scene_file_path = "res://arena/arena_spider.tscn"
+	_ok(not SfxLibrary.has_event(copy, "Attack"), "a copy of the scene has no sounds of its own")
+	SfxLibrary.alias_scene(copy.scene_file_path, SCENE)
+	SfxLibrary.reload_catalog()
+	_ok(SfxLibrary.has_event(copy, "Attack"), "alias_scene: the copy plays the original's sounds (survives reload)")
+	SfxLibrary.alias_scene(copy.scene_file_path, "")
+	_ok(not SfxLibrary.has_event(copy, "Attack"), "alias_scene with an empty target removes the alias")
+	copy.free()
 	var wav := AudioStreamWAV.new()
 	wav.loop_mode = AudioStreamWAV.LOOP_FORWARD
 	var once := wav.duplicate() as AudioStreamWAV

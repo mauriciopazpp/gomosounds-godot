@@ -10,6 +10,7 @@ extends Node
 ##   SfxLibrary.play_first(self, ["Gunshot", "Attack"])   # the 1st name the scene has
 ##   var steps := SfxLibrary.attach_event(self, "Walk")       # loop attached to the node (follows it)
 ##   SfxLibrary.play_music("@music.village-theme")          # the chosen versions in sequence, with crossfade
+##   SfxLibrary.alias_scene("res://arena/arena_archer.tscn", "res://units/archer.tscn")  # a copy plays the original's sounds
 ##
 ## A ONE-SHOT sound plays on its own layer (a child of this autoload), where the node is: it
 ## outlives the node (the death sound plays even after the unit is freed) and leaves nothing hanging in
@@ -59,6 +60,8 @@ static var _key_by_event: Dictionary = {}
 static var _events_of_scene: Dictionary = {}
 static var _last: Dictionary = {}
 static var _loaded := false
+## Scene → scene whose sounds it uses (see alias_scene).
+static var _alias_of_scene: Dictionary = {}
 
 
 func play(key: String, at: Node, volume_db: float = 0.0) -> Node:
@@ -179,6 +182,15 @@ func reload_catalog() -> void:
 ## Godot's Script.reload, which is why the proper name is reload_catalog.
 func reload() -> void:
 	reload_catalog()
+
+
+## Scene `from` plays the sounds installed for scene `to` (e.g. a game mode with its own copies of the
+## units, built on other scenes). Survives reload_catalog. Empty `to` removes the alias.
+func alias_scene(from: String, to: String) -> void:
+	if to == "":
+		_alias_of_scene.erase(from)
+	else:
+		_alias_of_scene[from] = to
 
 
 static func _ensure_loaded() -> void:
@@ -311,7 +323,8 @@ static func _pick_event(node: Node, event_name: String) -> String:
 
 
 static func _event_id(node: Node, event_name: String) -> String:
-	return node.scene_file_path + "|" + _norm(event_name)
+	var scene := node.scene_file_path
+	return str(_alias_of_scene.get(scene, scene)) + "|" + _norm(event_name)
 
 
 ## `attached` = loop as a child of the node; otherwise, a one-shot sound on the layer, at the node's position.
