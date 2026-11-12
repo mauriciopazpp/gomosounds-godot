@@ -51,6 +51,8 @@ You don't need to know anything about audio.
 the game's Inbox on Gomo Sounds. Drag each one to its tab (or click **Move automatically**) and it gets its own list
 of sounds.
 
+<p align="center"><img src="docs/entities.png" alt="Each scene from Godot becomes a folder with its picture on Gomo Sounds, holding its own sounds" width="820"></p>
+
 **2. Make the sounds.** Ask for "attack", "footsteps", "die" for each scene, from the Gomo Sounds dock in the editor
 or on the website. Listen to the versions and keep the best ones. On the website you can also trim, fix and mix
 them, and hear everything playing together as if the game were running.
