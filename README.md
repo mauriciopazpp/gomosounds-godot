@@ -9,7 +9,7 @@
   <a href="https://gomosounds.com/en">Website</a> ·
   <a href="https://gomosounds.com/en/docs/godot">Docs</a> ·
   <a href="https://gomosounds.com/en/ai-game-music-generator">Hear the music styles</a> ·
-  <a href="https://gomosounds.com/en/explore">Explore public sounds</a>
+  <a href="https://gomosounds.com/en/sounds">Browse public sounds</a>
 </p>
 
 <p align="center">
