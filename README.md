@@ -112,7 +112,7 @@ The plugin also registers the `SfxLibrary` autoload, which is what plays the sou
 ## Pricing
 
 The plugin works on **every plan, free included**. Generating sounds uses credits: the free plan gives you
-**100 credits every month**, no card needed. Picking and installing sounds are always free.
+**50 credits every month**, no card needed. Picking and installing sounds are always free.
 
 You can use the sounds in commercial games on any plan (Steam, itch.io, mobile, consoles). On the free plan, credit
 Gomo Sounds in your game. See [pricing](https://gomosounds.com/en) and the [terms](https://gomosounds.com/terms).
