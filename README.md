@@ -14,7 +14,7 @@
 
 <p align="center">
   <img alt="Godot 4.3+" src="https://img.shields.io/badge/Godot-4.3%2B-478cbf?logo=godotengine&logoColor=white">
-  <img alt="Free plan" src="https://img.shields.io/badge/free%20plan-100%20credits%2Fmonth-ff8b15">
+  <img alt="Free plan" src="https://img.shields.io/badge/free%20plan-50%20credits%2Fmonth-ff8b15">
   <img alt="MIT license" src="https://img.shields.io/badge/license-MIT-green">
   <a href="https://glama.ai/mcp/connectors/com.gomosounds/gomo-sounds"><img alt="Gomo Sounds MCP connector on Glama" src="https://glama.ai/mcp/connectors/com.gomosounds/gomo-sounds/badges/score.svg" height="20"></a>
 </p>
